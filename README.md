@@ -5,35 +5,35 @@ AI teknolojisi ile büyük veri setlerini analiz eden, KPI'ları çıkaran, tren
 ## 📸 Ekran Görüntüleri
 
 ### 🔐 Giriş Ekranı
-![Login Interface](.frontend/screen-shots/1.png)
+![Login Interface](frontend/screen-shots/1.png)
 *Güvenli JWT tabanlı kimlik doğrulama sistemi*
 
 ### 📊 Ana Dashboard
-![Dashboard](.frontend/screen-shots/2.png)
+![Dashboard](frontend/screen-shots/2.png)
 *Analiz edilmiş raporların özet görünümü ve istatistikleri*
 
 ### 📤 Rapor Yükleme
-![Report Upload](.frontend/screen-shots/3.png)
+![Report Upload](frontend/screen-shots/3.png)
 *Drag & drop ile kolay dosya yükleme - Excel, CSV, PDF desteği*
 
 ### 📈 Özet Çıkarım Analizi
-![KPI Analysis](.frontend/screen-shots/4.png)
+![KPI Analysis](frontend/screen-shots/4.png)
 *Yüklenen verinin özet bilgilerinin çıkarılması*
 
 ### 📈 KPI Analizi
-![KPI Analysis](.frontend/screen-shots/5.png)
+![KPI Analysis](frontend/screen-shots/5.png)
 *Otomatik çıkarılan anahtar performans göstergeleri*
 
 ### 📉 Trend Analizi
-![Trend Analysis](.frontend/screen-shots/6.png)
+![Trend Analysis](frontend/screen-shots/6.png)
 *Görsel grafik ile veri trendleri ve analiz sonuçları*
 
 ### ✅ Eylem Planı
-![Action Items](.frontend/screen-shots/7.png)
+![Action Items](frontend/screen-shots/7.png)
 *AI tarafından önerilen eylem maddeleri ve öncelik seviyeleri*
 
 ### 💬 Soru-Cevap Sistemi
-![Chat Interface](.frontend/screen-shots/8.png)
+![Chat Interface](frontend/screen-shots/8.png)
 *Doğal dille rapor hakkında soru sorma imkanı*
 
 ## 🚀 Özellikler
