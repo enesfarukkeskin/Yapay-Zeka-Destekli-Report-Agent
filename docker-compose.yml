@@ -1,0 +1,76 @@
+# docker-compose.yml - Multi-container setup
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  database:
+    image: postgres:15
+    container_name: reportagent-db
+    environment:
+      POSTGRES_DB: ReportAgentDB
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234qwer
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init/01_create_tables.sql:/docker-entrypoint-initdb.d/01_create_tables.sql
+      - ./database/seed-data/02_seed_data.sql:/docker-entrypoint-initdb.d/02_seed_data.sql
+    networks:
+      - reportagent-network
+
+  # C# Backend API
+  backend:
+    build: ./backend/ReportAgent.API
+    container_name: reportagent-backend
+    ports:
+      - "5001:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=database;Database=ReportAgentDB;Username=postgres;Password=1234qwer
+      - JWT__Key=your-super-secret-jwt-key-here-make-it-long-and-secure
+      - AIService__BaseUrl=http://ai-service:8000
+    depends_on:
+      - database
+      - ai-service
+    volumes:
+      - ./backend/uploads:/app/uploads
+    networks:
+      - reportagent-network
+
+  # Python AI Service
+  ai-service:
+    build: ./ai-service/Microservice
+    container_name: reportagent-ai
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY="your-openai-api-key-here"
+      - DEBUG=True
+    volumes:
+      - ./backend/uploads:/app/uploads  # Dosyaları paylaşımlı olarak erişim
+    networks:
+      - reportagent-network
+
+  # React Frontend
+  frontend:
+    build: 
+      context: ./frontend
+      args:
+        - REACT_APP_API_URL=http://localhost:5001/api
+    container_name: reportagent-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5001/api
+    depends_on:
+      - backend
+    networks:
+      - reportagent-network
+
+volumes:
+  postgres_data:
+
+networks:
+  reportagent-network:
+    driver: bridge
