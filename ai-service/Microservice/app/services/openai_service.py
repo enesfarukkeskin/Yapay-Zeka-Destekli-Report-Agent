@@ -7,15 +7,8 @@ from app.config import settings
 
 class OpenAIService:
     def __init__(self):
-        # Geçici olarak mock response kullan - OpenAI API client sorunu nedeniyle
-        print("Using mock responses for OpenAI API")
+
         self.client = None
-        # if settings.openai_api_key:
-        #     self.client = AsyncOpenAI(api_key=settings.openai_api_key)
-        # else:
-        #     print("Warning: OpenAI API key not found. Using mock responses.")
-        #     self.client = None
-    
     async def get_analysis_insights(self, prompt: str) -> str:
         """Analiz için OpenAI'den insights al"""
         if not self.client:

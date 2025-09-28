@@ -1,4 +1,4 @@
-# Yapay-Zeka-Destekli-Report-Agent# 🤖 Report Agent - AI Destekli Rapor Analiz Platformu
+# 🤖 Report Agent - AI Destekli Rapor Analiz Platformu
 
 AI teknolojisi ile büyük veri setlerini analiz eden, KPI'ları çıkaran, trendleri belirleyen ve eylem önerileri sunan modern bir rapor analiz platformu.
 
